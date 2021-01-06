@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 
 void	on_signIn1_clicked (GtkButton *b) {
 	printf("Sign In tapped\n");
-	gtk_widget_hide(window);
+	// gtk_widget_hide(window);
 	main2();
 	
 }
@@ -74,7 +74,7 @@ void	on_signIn1_clicked (GtkButton *b) {
 void	on_signUp_clicked (GtkButton *b) {
 	printf("Sign Up tapped\n");
 	main3();
-	gtk_widget_hide(window);
+	// gtk_widget_hide(window);
 }
 void	on_saveBtn_clicked (GtkButton *b) {
 	printf("Button clickedIn\n");
@@ -82,9 +82,9 @@ void	on_saveBtn_clicked (GtkButton *b) {
 	
 }
 
-void	submit_signup (GtkButton *b) {
-	printf("Button clickedSignUp\n");
-}
+// void	submit_signup (GtkButton *b) {
+// 	printf("Button clickedSignUp\n");
+// }
 void testclick_clicked (GtkButton *b){
 	printf("Button clickedSignUp\n");
 }

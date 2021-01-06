@@ -115,7 +115,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <signal name="activate" handler="on_testfuck_activate" swapped="no"/>
+            <signal name="clicked" handler="on_testfuck_activate" swapped="no"/>
           </object>
           <packing>
             <property name="x">127</property>
@@ -150,7 +150,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="SignUpBtn">
+          <object class="GtkButton" id="SignUpBtnsave">
             <property name="label" translatable="yes">Save</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
