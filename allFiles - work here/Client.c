@@ -16,7 +16,7 @@
 #include <ctype.h>
 
 
-GtkWidget	*window,*SignUpWindow,*SignInWindow,*newSignInWindow;
+GtkWidget	*window,*SignUpWindow,*SignInWindow,*SignInWindow;
 GtkWidget	*fixed,*fixed1;
 GtkWidget	*signIn;
 GtkWidget	*signUp; 
@@ -72,7 +72,7 @@ int main(int argc , char *argv[]){
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
     SignUpWindow = GTK_WIDGET(gtk_builder_get_object(builder, "SignUpWindow"));
 	SignInWindow = GTK_WIDGET(gtk_builder_get_object(builder, "SignInWindow"));
-	newSignInWindow = GTK_WIDGET(gtk_builder_get_object(builder, "newSignInWindow"));
+	SignInWindow = GTK_WIDGET(gtk_builder_get_object(builder, "SignInWindow"));
 
 	g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 	
@@ -148,10 +148,10 @@ int main(int argc , char *argv[]){
 	return 0;
 }
 
-void on_signIn_clicked (GtkButton *b) {
+void on_signIn1_clicked (GtkButton *b) {
 	printf("Sign In tapped\n");
 	gtk_widget_hide(window);
-	gtk_widget_show(newSignInWindow);
+	gtk_widget_show(SignInWindow);
 }
 
 void on_signUp_clicked (GtkButton *b) {
@@ -159,7 +159,7 @@ void on_signUp_clicked (GtkButton *b) {
 	gtk_widget_hide(window);
 	gtk_widget_show(SignUpWindow);
 }
-void on_saveBtn_clicked (GtkButton *b) {
+void on_signInBtnSave_clicked(GtkButton *b) {
 	printf("Button clicked\n");
 
 	GtkTextIter begin, end;
@@ -199,3 +199,6 @@ void on_changed_text2(GtkTextBuffer *t) {
 	gtk_widget_show(saveBtn);
 }
 
+void on_SignUpBtnsave_clicked(GtkButton *b){
+	printf("*** Save Up Btn\n");
+}
