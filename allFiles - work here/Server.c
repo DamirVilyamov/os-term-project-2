@@ -8,7 +8,7 @@
 #include <arpa/inet.h>
 #include <mysql.h>
 
-#define PORT 8000
+#define PORT 8080
 //dont forget to change server ip when connecting to another network
 void finish_with_error(MYSQL *con, int position)
 {
@@ -115,14 +115,14 @@ int main(){
 	memset(&serverAddr, '\0', sizeof(serverAddr));
 	serverAddr.sin_family = AF_INET;
 	serverAddr.sin_port = htons(PORT);
-	serverAddr.sin_addr.s_addr = inet_addr("192.168.1.108");//write here server ip
+	serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");//write here server ip like 192.168.1.108
 
 	ret = bind(sockfd, (struct sockaddr*)&serverAddr, sizeof(serverAddr));
 	if(ret < 0){
 		printf("[-]Error in binding.\n");
 		exit(1);
 	}
-	printf("[+]Bind to port %d\n", 8000);
+	printf("[+]Bind to port %d\n", htons(PORT));
 
 	if(listen(sockfd, 10) == 0){
 		printf("[+]Listening....\n");
