@@ -38,7 +38,7 @@ void on_changed_text2(GtkTextBuffer *t);
 
 int clientSocket, ret;
 
-#define PORT 8000
+#define PORT 8080
 
 int main(int argc , char *argv[]){
     gtk_init(&argc, &argv);
@@ -58,7 +58,7 @@ int main(int argc , char *argv[]){
 	memset(&serverAddr, '\0', sizeof(serverAddr));
 	serverAddr.sin_family = AF_INET;
 	serverAddr.sin_port = htons(PORT);
-	serverAddr.sin_addr.s_addr = inet_addr("192.168.1.108");
+	serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");//write here address server like 192.168.1.108
 
 	ret = connect(clientSocket, (struct sockaddr*)&serverAddr, sizeof(serverAddr));
 	if(ret < 0){
