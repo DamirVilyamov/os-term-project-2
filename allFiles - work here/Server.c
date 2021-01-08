@@ -8,7 +8,7 @@
 #include <arpa/inet.h>
 #include <mysql.h>
 
-#define PORT 8080
+#define PORT 8000
 //dont forget to change server ip when connecting to another network
 void finish_with_error(MYSQL *con, int position)
 {
@@ -16,6 +16,7 @@ void finish_with_error(MYSQL *con, int position)
     mysql_close(con);
     exit(1);
 }
+
 void runQuery(char *query, MYSQL *con)
 {
     if (mysql_query(con, query))
@@ -23,6 +24,7 @@ void runQuery(char *query, MYSQL *con)
         finish_with_error(con, 44);
     }
 }
+
 struct st_mysql *connectDB()
 {
     MYSQL *con = mysql_init(NULL);
@@ -33,7 +35,7 @@ struct st_mysql *connectDB()
         exit(1);
     }
 
-    if (mysql_real_connect(con, "localhost", "root", "4585", "testdbProd", 0, NULL, 0) == NULL)
+    if (mysql_real_connect(con, "localhost", "root", "password", "testdbProd", 0, NULL, 0) == NULL)
     {
         finish_with_error(con, 20);
     }
@@ -70,21 +72,7 @@ int isUserAuthorized(char *login, char *password)
 
         return 0;
     }
-    //else
-    // {
 
-    //     for (int i = 0; i < num_fields; i++)
-    //     {
-    //         printf("%s ", row[i] ? row[i] : "NULL");
-    //         printf("\n%d ", i);
-    //         // if (row[i] == "NULL")
-    //         // {
-    //         //     return 0;
-    //         // }
-    //     }
-
-    //     printf("\n");
-    // }
 
     mysql_free_result(result);
     disconnectDB(con);
@@ -175,3 +163,7 @@ int main(){
 
 	return 0;
 };
+
+
+
+

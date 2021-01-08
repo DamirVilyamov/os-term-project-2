@@ -38,7 +38,7 @@ void on_changed_text2(GtkTextBuffer *t);
 
 int clientSocket, ret;
 
-#define PORT 8080
+#define PORT 8000
 
 int main(int argc , char *argv[]){
     gtk_init(&argc, &argv);
